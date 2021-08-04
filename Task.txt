@@ -1,0 +1,12 @@
+Create a RESTfull Service with NodeJS+Express to collect and manage the data retrieved from some API and stored in database (ElasticSearch).
+Requirements
+1. Server should be able to retrieve a “POST” request to “/search” endpoint. 
+2. “/search” endpoint should require 2 parameters - “size” (Number) and “searchText”. Number parameter represents the number of entities that should be read from api and saved to database. SearchText - string to filter the data.
+3. The response from “/search” endpoint should be a list with data retrieved form API. Same dataset should be stored in elasticsearch.
+4. You can use “Books API”, “NY Times Article API” or any you want.
+5. Implement other endpoints for editing and deleting entities. 
+
+pass from “Books API”, “NY Times Article API”:
+XtY(72~k5v
+dHOPJtw6qvMMMvE1EXy7EALVEORxtgoh
+xFdIyEY9QyZbyjGF 
