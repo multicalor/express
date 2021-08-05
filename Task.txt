@@ -20,3 +20,9 @@ sudo systemctl start elasticsearch
 sudo systemctl enable elasticsearch
 //test
 curl -XGET 'http://localhost:9200/_nodes?pretty'
+
+//My cloud
+Username
+elastic
+Password
+hg4n7zsjOUCeziagDXjTGzLV
