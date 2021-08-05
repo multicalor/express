@@ -20,19 +20,19 @@ class ElasticSearchService {
     console.log(body)
   }
 
-  async search(data, searchText, size) {
+//   async search(data, searchText, size) {
 
-    const result = await client.search({
-      index: 'data',
-      body: {
-        query: {
-          match: { hello: searchText }
-        }
-      }
+//     const result = await client.search({
+//       index: 'data',
+//       body: {
+//         query: {
+//           match: { hello: searchText }
+//         }
+//       }
       
-    })
-    return result;
-}
+//     })
+//     return result;
+// }
 }
 
 module.exports = new ElasticSearchService();
