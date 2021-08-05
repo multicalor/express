@@ -1,7 +1,9 @@
 const searchService = require('../services/searchService')
 const axios = require('axios')
+const { Client } = require('@elastic/elasticsearch')
+const client = new Client({ node: 'http://localhost:9200' })
 
-// const ApiError = require('../error/ApiError')
+
 const APIKEY = 'dHOPJtw6qvMMMvE1EXy7EALVEORxtgoh'
 
 class SearchController {
@@ -21,12 +23,6 @@ class SearchController {
     
   }
 
-  //   async getAll(req, res) {
-  //     const { id } = req.user;
-  //     const {coast, products} = await basketService.getAll(id);
-  //     return res.json({coast, products});
-  //   }
-
     async update(req, res) {
         // const productsInfo  = req.body;
         // const { id } = req.user;
@@ -35,28 +31,9 @@ class SearchController {
     }
 
     async delete(req, res) {
-      // const { productId, quantity }  = req.body;
-      // const { id } = req.user;
-      // const basket = await basketService.addOne(productId, quantity, id);
       return res.json("basket");
     }
 
-
-  // //todo complete function
-  //   async removeOne(req, res) {
-  //     const { productId }  = req.body;
-  //     console.log("req.body",req.body)
-  //     const { id } = req.user;
-  //     const basket = await basketService.removeOne(productId, id);
-  //     return res.json(basket);
-  //   }
-
-  // async updateOne(req, res) {
-  //   const { oldProductId, newProduct }  = req.body;
-  //   const { id } = req.user;
-  //   const basket = await basketService.updateOne(oldProductId, newProduct , id);
-  //   return res.json(basket);
-  // }
 }
 
 

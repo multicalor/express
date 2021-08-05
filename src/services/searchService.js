@@ -1,5 +1,5 @@
 
-const elasticsearch = require('../db/connectEllasticSearch');
+// const elasticsearch = require('../db/connectEllasticSearch');
 
 
 class SearchService {

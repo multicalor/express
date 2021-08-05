@@ -10,3 +10,13 @@ pass from “Books API”, “NY Times Article API”:
 XtY(72~k5v
 dHOPJtw6qvMMMvE1EXy7EALVEORxtgoh
 xFdIyEY9QyZbyjGF 
+
+//ElasticSearch 
+https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-elasticsearch-on-ubuntu-20-04-ru
+stings file 
+sudo code /etc/elasticsearch/elasticsearch.yml
+start elasticsearch
+sudo systemctl start elasticsearch
+sudo systemctl enable elasticsearch
+//test
+curl -XGET 'http://localhost:9200/_nodes?pretty'
