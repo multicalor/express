@@ -37,21 +37,19 @@ class SearchController {
     }
 
     run(data, searchText, size).catch(console.log)
-    
+
 
     res.json('result')
     
   }
 
     async update(req, res) {
-        // const productsInfo  = req.body;
-        // const { id } = req.user;
-        // const {coast, products} = await basketService.update(productsInfo, id);
-        return res.json({"end": "end"});
+
+        return res.json({"test": "test"});
     }
 
     async delete(req, res) {
-      return res.json("basket");
+      return res.json({"test": "test"});
     }
 
 }
