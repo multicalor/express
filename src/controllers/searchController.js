@@ -26,11 +26,9 @@ class SearchController {
     const rawData = await axios.get(url);
     const books = rawData.data.results.books.splice(0, +size)
 
-    // console.log('books---->', books)
-
     const result = await arrToBulk(books, 'books', client)
     console.log(result)
-    res.json(result)
+    res.status(200).json(result)
 
   }
 
@@ -51,7 +49,12 @@ class SearchController {
       }
 
     })
-    return res.json(response.hits.hits);//.hits.hits
+    const result = response.hits.hits.map((element, i) => {
+      element._source.elastic_id = element._id
+      return element._source
+    });
+
+    return res.status(200).json(result);
   }
 
   async update(req, res) {
