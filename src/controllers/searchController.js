@@ -61,7 +61,6 @@ class SearchController {
           query: {
             multi_match: {
               query: searchText,
-
               fields: ['title', 'description']
             }
           }

@@ -16,9 +16,6 @@ class ApiError extends Error {
   static forbidden(message) {
     return new ApiError(403, message)
   }
-  static ifBadDataRequest(message) {
-    return new ApiError(200, message);
-  }
 }
 
 module.exports = ApiError;
