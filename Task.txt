@@ -13,6 +13,7 @@ xFdIyEY9QyZbyjGF
 
 //ElasticSearch 
 https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-elasticsearch-on-ubuntu-20-04-ru
+https://medium.com/yom-ai/rest-api-with-node-js-and-elasticsearch-1368cf9df02a
 stings file 
 sudo code /etc/elasticsearch/elasticsearch.yml
 start elasticsearch
@@ -26,3 +27,5 @@ Username
 elastic
 Password
 hg4n7zsjOUCeziagDXjTGzLV
+
+https://codedzen.ru/elasticsearch-vvedeniye-1-1-osnovnyye-ponyatiya/#more-269

@@ -11,38 +11,54 @@ const API_KEY = 'dHOPJtw6qvMMMvE1EXy7EALVEORxtgoh'
 
 class SearchController {
 
-  async search(req, res) {
-    console.log(typeof +req.params.size)
-    const { size, searchText } = req.params;
+  async elasticSearch(req, res) {
+    res.seng('test')
+  }
 
-    const url = `https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?title=${searchText.replace(' ', '%')}&api-key=${API_KEY}`
+
+
+  async apiSearch(req, res) {
+
+    const { size, searchText } = req.params;
+    console.log(searchText)
+    const url = `https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?title=${searchText}&api-key=${API_KEY}`
 
     const rawData = await axios.get(url);
     const books = rawData.data.results.books.splice(0, +size)
 
-    console.log('books---->', books)
+    // console.log('books---->', books)
 
-    await arrToBulk(books, 'books', client)
+    const result = await arrToBulk(books, 'books', client)
+    console.log(result)
+    res.json(result)
+
+  }
+
+  async elasticSearch(req, res) {
+    const { size, searchText } = req.params;
+
+    console.log(searchText)
 
     const { body: response } = await client.search({
       index: "books",
       body: {
         query: {
-          match: {
-            description: 'after'
+          multi_match: {
+            query: searchText,
+            fields: ['title', 'description']
           }
         }
       }
 
     })
-
-    res.json(response.hits.hits)
+    return res.json(response.hits.hits);//.hits.hits
   }
 
   async update(req, res) {
 
     return res.json({ "test": "test" });
   }
+
 
   async delete(req, res) {
     return res.json({ "test": "test" });
