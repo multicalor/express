@@ -107,10 +107,12 @@ class SearchController {
   async delete(req, res) {
     try {
       const { elastic_id } = req.body;
+      console.log(elastic_id)
       const {body} = await client.delete({
         index: "books",
         id: elastic_id
       })
+
       console.log(body)
       res.status(200).send({status:200, message: "delete"})
     } catch (e) {
