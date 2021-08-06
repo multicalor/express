@@ -1,0 +1,111 @@
+{
+    "codeEditor": {
+        "useSpaces": false,
+        "wrapLines": false
+    },
+    "connection": {
+        "activeInstanceIdx": 0,
+        "instances": [{
+            "name": "default cluster",
+            "username": "",
+            "password": "",
+            "uri": "http://localhost:9200",
+            "status": "yellow"
+        }]
+    },
+    "indices": {
+        "showHiddenIndices": false,
+        "hideIndicesRegex": "^\\..*",
+        "filter": "",
+        "options": {
+            "page": 1,
+            "itemsPerPage": 10,
+            "sortBy": ["index"],
+            "sortByDesc": [],
+            "sortDesc": [false],
+            "groupBy": [],
+            "groupDesc": [],
+            "mustSort": false,
+            "multiSort": false
+        }
+    },
+    "nodes": {
+        "listType": "table",
+        "filter": "",
+        "pagination": {
+            "page": 1,
+            "itemsPerPage": 10,
+            "sortBy": ["name"],
+            "sortByDesc": [],
+            "sortDesc": [false],
+            "groupBy": [],
+            "groupDesc": [],
+            "mustSort": false,
+            "multiSort": false
+        }
+    },
+    "queryRest": {
+        "path": "",
+        "method": "POST",
+        "requestBody": "{}",
+        "vertical": false
+    },
+    "search": {
+        "q": "*",
+        "indices": "books",
+        "searchQuery": "{\n\t\"query\": {\n\t\t\"query_string\": {\n\t\t\t\"query\": \"*\"\n\t\t}\n\t},\n\t\"size\": 10,\n\t\"from\": 0,\n\t\"sort\": []\n}",
+        "searchQueryCollapsed": false,
+        "filter": "",
+        "options": {
+            "page": 1,
+            "itemsPerPage": 10,
+            "sortBy": [],
+            "sortDesc": [],
+            "groupBy": [],
+            "groupDesc": [],
+            "mustSort": false,
+            "multiSort": false,
+            "sortByDesc": []
+        },
+        "selectedColumns": ["_index", "_type", "_id", "rank", "rank_last_week", "weeks_on_list", "asterisk", "dagger", "primary_isbn10", "primary_isbn13", "publisher", "description", "price", "title", "author", "contributor", "contributor_note", "book_image", "book_image_width", "book_image_height", "amazon_product_url", "age_group", "book_review_link", "first_chapter_link", "sunday_review_link", "article_chapter_link", "isbns", "buy_links", "book_uri", "ranks_history", "reviews"],
+        "columns": ["_index", "_type", "_id", "title", "description", "contributor", "author", "contributor_note", "price", "age_group", "publisher", "isbns", "ranks_history", "reviews"]
+    },
+    "repositories": {
+        "filter": "",
+        "pagination": {
+            "page": 1,
+            "itemsPerPage": 10,
+            "sortBy": ["name"],
+            "sortByDesc": [],
+            "sortDesc": [false],
+            "groupBy": [],
+            "groupDesc": [],
+            "mustSort": false,
+            "multiSort": false
+        },
+        "stickyTableHeader": false
+    },
+    "snapshots": {
+        "filter": "",
+        "repository": "",
+        "pagination": {
+            "page": 1,
+            "itemsPerPage": 10,
+            "sortBy": ["name"],
+            "sortByDesc": []
+        }
+    },
+    "snackbar": {
+        "visible": false,
+        "timeout": 6000,
+        "color": null,
+        "text": "",
+        "additionalText": ""
+    },
+    "survey": {
+        "hintVisible": true
+    },
+    "theme": {
+        "dark": true
+    }
+}
