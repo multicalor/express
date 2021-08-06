@@ -4,6 +4,9 @@ const { arrToBulk } = require('../utils/arrToBulk')
 const { Client } = require('@elastic/elasticsearch')
 const client = new Client({ node: 'http://localhost:9200' })
 
+// Error handle
+const ApiError = require('../error/ApiError');
+
 
 
 const API_KEY = process.env.API_KEY //'dHOPJtw6qvMMMvE1EXy7EALVEORxtgoh'
@@ -20,9 +23,10 @@ class SearchController {
       })
       console.log(body)
 
-      res.send({ status: 200, data: { elasic_id: body._id, body: body._source } })
+      res.status(200).send({ status: 200, data: { elasic_id: body._id, body: body._source } })
     } catch (e) {
-      return res.status(500).json({ status: Error, ditaile: e.message });
+      console.error(e.message)
+      return res.status(404).send({status: 404, diteils: "there are no records for the requested id"})
     }
 
   }
@@ -36,14 +40,13 @@ class SearchController {
 
       const books = rawData.data.results.splice(0, +size)
 
-      if (books.length === 0) return res.status(500).json({ status: Error, ditaile: "no books on your request" });
+      if (books.length === 0) throw ApiError.badRequest({ status: Error, details: "no books on your request" })
       console.log(books)
       const result = await arrToBulk(books, 'books', client)
-      console.log('books------->')
-      console.log(result)
       res.status(200).json({ status: 200, data: result })
     } catch (e) {
-      return res.status(500).json({ status: Error, ditaile: e.message });//"Api book error"
+      console.error(e.message)
+      return res.status(500).json({ status:e.status, details: e.message });//"Api book error"
     }
   }
 
@@ -66,7 +69,7 @@ class SearchController {
 
       })
       console.log(response.hits)
-      if (response.hits.hits.length === 0) return res.status(500).json({ status: Error, ditaile: "no books on your request" });
+      if (response.hits.hits.length === 0) throw ApiError.badRequest({ status: Error, details: "no books on your request" });
 
       const result = response.hits.hits.map((element) => {
         let body = {}
@@ -76,8 +79,10 @@ class SearchController {
       });
 
       return res.status(200).json({ status: 200, data: result });
+
     } catch (e) {
-      return res.status(500).json({ status: Error, ditaile: "data base error" });
+      console.log(e.message)
+      return res.status(e.status).json( e.message );
     }
 
 
@@ -98,7 +103,8 @@ class SearchController {
       console.log(response)
       return res.status(200).json(response);
     } catch (e) {
-      res.status(500).send({ status: Error, message: e.message })
+      console.error(e.message)
+      res.status(500).send({ status: Error, details: "no books on your request" })
     }
 
   }
@@ -117,7 +123,7 @@ class SearchController {
       res.status(200).send({ status: 200, message: "delete" })
     } catch (e) {
       console.error(e.message)
-      res.status(500).send({ status: Error, message: "no record according to your request" })
+      res.status(500).send({ status: Error, details: "there are no records to delete for your request, you may have requested an invalid id" })
     }
 
   }

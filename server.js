@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require('express');
 const cors = require('cors');
 const router = require('./src/routes/index');
+const errorHandler = require('./src/middleware/ErrorHandlingMiddleware')
 
 const PORT = process.env.PORT || 5000;
 
@@ -13,6 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 app.use('/api', router);
 
+app.use(errorHandler);
 
 app.get('/', (req, res) => {
   res.status(200).json({message: 'WORKING!!!'})
