@@ -26,7 +26,7 @@ class SearchController {
       res.status(200).send({ status: 200, data: { elasic_id: body._id, body: body._source } })
     } catch (e) {
       console.error(e.message)
-      return res.status(404).send({status: 404, diteils: "there are no records for the requested id"})
+      return res.status(404).send({status: 404, details: "there are no records for the requested id"})
     }
 
   }
