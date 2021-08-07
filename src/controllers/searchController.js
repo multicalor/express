@@ -59,7 +59,7 @@ class SearchController {
         body: {
           size,
           query: {
-            "query_string" : {"default_field" : ["title", 'description'], "query" : searchText}
+            "query_string" : {"default_field" : ["title", 'description', "author"], "query" : searchText}
           }
         }
 
