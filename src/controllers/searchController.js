@@ -59,10 +59,7 @@ class SearchController {
         body: {
           size,
           query: {
-            multi_match: {
-              query: searchText,
-              fields: ['title', 'description']
-            }
+            "query_string" : {"default_field" : ["title", 'description'], "query" : searchText}
           }
         }
 

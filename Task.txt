@@ -12,6 +12,7 @@ dHOPJtw6qvMMMvE1EXy7EALVEORxtgoh
 xFdIyEY9QyZbyjGF 
 
 //ElasticSearch 
+https://medium.com/@deeshugupta/autocomplete-using-elasticsearch-and-nodejs-e48a3901973f
 https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-elasticsearch-on-ubuntu-20-04-ru
 https://medium.com/yom-ai/rest-api-with-node-js-and-elasticsearch-1368cf9df02a
 stings file 
