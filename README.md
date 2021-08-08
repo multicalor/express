@@ -202,6 +202,10 @@ searchText - the word to search for
 
 #### request:
 
+elastic_id - id of the record to be updated
+
+body - new data for update
+
 body [JSON]
 
     {
@@ -274,8 +278,7 @@ body [JSON]
         }
     }
 
-elastic_id - id of the record to be updated
-body - new data for update
+
 
 #### response:
 
