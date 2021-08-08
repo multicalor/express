@@ -47,7 +47,7 @@ class SearchController {
           size,
           query: {
             multi_match: {
-              fields: ['title', 'description', 'author'],
+              fields: ['title'],//, 'description', 'author'
               query: searchText,
               fuzziness:2
             }
