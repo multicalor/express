@@ -1,5 +1,13 @@
 # Prerequisites for Linux
 
+## Automate script for install 
+### From project folder insert this commands into terminal application 
+    git clone git@github.com:multicalor/express
+    cd express
+    chmod +x runDev.sh
+    ./runDev.sh
+
+## Manual install
 ### copy this project from github and install dependency 
 
 Open your terminal from the project folder end copy this string to an open terminal
