@@ -44,7 +44,9 @@ POST /search/:size/:searchText
     localhost:5000/api/2/and
 
 status - http status code
+
 size - maximum number of results returned
+
 searchText - the word to search for
 
 #### response:
@@ -116,6 +118,7 @@ searchText - the word to search for
 #### main response fields 
 
 elastic_id - id from manipulate data into elasticsearch
+
 body - main data json object
 
 ### Finding data in elasticsearch
@@ -127,7 +130,9 @@ GET /search/:size/:searchText
     localhost:5000/api/2/and
 
 status - http status code
+
 size - maximum number of results returned
+
 searchText - the word to search for
 
 #### response:
