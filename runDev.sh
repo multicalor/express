@@ -6,4 +6,5 @@ sudo apt install elasticsearch
 sudo systemctl start elasticsearch
 git clone git@github.com:multicalor/express
 npm install
+fuser -k 5000/tcp
 npm run dev
