@@ -9,7 +9,6 @@ const arrToBulk = async (dataSet, index, client) => {
       return {elastic_id:element.index._id, body};
     });
 
-    console.log(result)
     if (bulkResponse.errors) {
       const erroredDocuments = []
       bulkResponse.items.forEach((action, i) => {
@@ -26,7 +25,7 @@ const arrToBulk = async (dataSet, index, client) => {
       console.log(erroredDocuments)
     }
     const { body: count } = await client.count({ index: index })
-    console.log(count)
+
     return result;
 
   }

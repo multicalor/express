@@ -16,7 +16,7 @@
         }],
         "colId": "3ac63d03-b577-4d73-9fea-5d881092c079",
         "name": "API search",
-        "url": "localhost:5000/api/search/3/putin",
+        "url": "localhost:5000/api/search/3/word",
         "method": "POST",
         "modified": "2021-08-06T19:28:27.658Z",
         "created": "2021-08-06T06:49:44.476Z",

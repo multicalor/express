@@ -18,6 +18,8 @@ https://medium.com/yom-ai/rest-api-with-node-js-and-elasticsearch-1368cf9df02a
 //setup substring search
 https://github.com/deeshugupta/lambda/blob/master/elasticsearch_autocomplete/nodejs_server/server.js
 stings file 
+https://stackoverflow.com/questions/6467067/how-to-search-for-a-part-of-a-word-with-elasticsearch
+https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html
 sudo code /etc/elasticsearch/elasticsearch.yml
 start elasticsearch
 sudo systemctl start elasticsearch
