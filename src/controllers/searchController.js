@@ -11,21 +11,61 @@ const API_KEY = process.env.API_KEY //'dHOPJtw6qvMMMvE1EXy7EALVEORxtgoh'
 
 class SearchController {
 
-  async getOne(req, res) {
-    try {
-      const { elastic_id } = req.body;
-      const { body } = await client.get({
-        index: "books",
-        id: elastic_id
-      })
-      console.log(body)
+  async mapping(){
 
-      res.send({ status: 200, data: { elasic_id: body._id, body: body._source } })
-    } catch (e) {
-      return res.status(500).json({ status: Error, ditaile: e.message });
+    const payload = { 
+      "properties": {
+      "title": {
+        "type": "text",
+        "analyzer": "standard",
+        "boost": 2
+      },
+      "description": {
+        "type": "text",
+        "analyzer": "standard",
+        "boost": 2
+      },
+      "contributor": {
+        "type": "text",
+        "analyzer": "standard",
+        "boost": 2
+      },
+      "author": {
+        "type": "text",
+        "analyzer": "standard",
+        "boost": 2
+      },
+      "contributor_note": {
+        "type": "text",
+        "analyzer": "standard",
+        "boost": 2
+      },
+      "price": "16.99",
+      "age_group": "Ages 9 to 12",
+      "publisher": {
+        "type": "text",
+        "analyzer": "standard",
+        "boost": 2
+      },
+      "isbns": [
+        {
+          "isbn10": "0061870935",
+          "isbn13": "9780061870934"
+        }
+      ],
+      "ranks_history": [],
+      "reviews": [
+        {
+          "book_review_link": "",
+          "first_chapter_link": "",
+          "sunday_review_link": "",
+          "article_chapter_link": ""
+        }
+      ]
     }
-
   }
+  }
+
 
   async apiSearch(req, res) {
     try {
@@ -53,13 +93,14 @@ class SearchController {
 
       const { body: response } = await client.search({
         index: "books",
+        
         body: {
           size,
           query: {
-            multi_match: {
-              query: searchText,
-
-              fields: ['title', 'description']
+            "multi_match": {
+              "fields": ['title', 'description', 'author'],
+              "query": searchText,
+              "fuzziness":2
             }
           }
         }
@@ -81,6 +122,22 @@ class SearchController {
     }
 
 
+
+  }
+
+  async getOne(req, res) {
+    try {
+      const { elastic_id } = req.body;
+      const { body } = await client.get({
+        index: "books",
+        id: elastic_id
+      })
+      console.log(body)
+
+      res.send({ status: 200, data: { elasic_id: body._id, body: body._source } })
+    } catch (e) {
+      return res.status(500).json({ status: Error, ditaile: e.message });
+    }
 
   }
 
