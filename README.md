@@ -18,7 +18,7 @@ for start elastic search node enter to terminal from eny folder
 
     sudo systemctl start elasticsearch
 
-## Start serve 
+## Start server
 
 open terminal from the root project folder and enter command line
 
@@ -34,9 +34,9 @@ if everything was done correctly you should see in the terminal
 BASE_URL
     localhost:5000/api
 
-#### Loading data from api book and loading it into elasticsearch
+### Loading data from api book and loading it into elasticsearch
 
-request:
+#### request:
 
 POST /search/:size/:searchText
 
@@ -47,7 +47,7 @@ status - http status code
 size - maximum number of results returned
 searchText - the word to search for
 
-response:
+#### response:
 
     {
     "status": 200,
@@ -111,16 +111,16 @@ response:
     ]
     }
 
-ERROR 
+#### ERROR 
     { "details": "no books on your request" }
 #### main response fields 
 
 elastic_id - id from manipulate data into elasticsearch
 body - main data json object
 
-#### finding data in elasticsearch
+### Finding data in elasticsearch
 
-request:
+#### request:
 GET /search/:size/:searchText
 
     //example
@@ -130,7 +130,7 @@ status - http status code
 size - maximum number of results returned
 searchText - the word to search for
 
-response:
+#### response:
 
     {
     "status": 200,
@@ -194,13 +194,13 @@ response:
     ]
     }
 
-ERROR 
+#### ERROR 
 
     { "details": "no books on your request" }
 
-####  Update record in elasticsearch 
+###  Update record in elasticsearch 
 
-request:
+#### request:
 
 body [JSON]
 
@@ -277,44 +277,61 @@ body [JSON]
 elastic_id - id of the record to be updated
 body - new data for update
 
-response:
+#### response:
 
     {
     "status": 200,
     "details": "updated"
     }
 
-ERROR:
+#### ERROR:
 
     { "details": "no books on your request" }
 
-#### Delete record in elasticsearch
+### Delete record in elasticsearch
 
 elastic_id - id of the record to be deleted
 
-response:
+#### request body [JSON]
+
+    { "elastic_id" : ""} 
+
+
+    //example
+    {"elastic_id":"T8zrIXsBHIgwzV8nUGDl"}
+
+
+#### response:
 
     {
     "status": 200,
     "details": "delete"
     }
 
-ERROR:
+#### ERROR:
 
     { "details": "there are no records to delete for your request, you may have requested an invalid id" }
 
-#### Get record by id from elasticsearch
+### Get record by id from elasticsearch
 
-elastic_id - id of the record to be deleted
+elastic_id - id of the record to be get
 
-response:
+#### request body [JSON]
+
+    { "elastic_id" : ""} 
+
+
+    //example
+    {"elastic_id":"T8zrIXsBHIgwzV8nUGDl"}
+
+### response:
 
     {
     "status": 200,
     "details": "delete"
     }
 
-ERROR:
+#### ERROR:
 
     { "details": "there are no records to delete for your request, you may have requested an invalid id" }
 
