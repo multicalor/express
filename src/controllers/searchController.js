@@ -46,12 +46,16 @@ class SearchController {
         body: {
           size,
           query: {
-            "prefix": {"title": searchText}
+            multi_match: {
+              fields: ['title', 'description', 'author'],
+              query: searchText,
+              fuzziness:2
+            }
           }
         }
 
       })
-      console.log(response.hits)
+
       if (response.hits.hits.length === 0) throw ApiError.badRequest({ status: Error, details: "no books on your request" });
 
       const result = response.hits.hits.map((element) => {

@@ -20,6 +20,9 @@ https://github.com/deeshugupta/lambda/blob/master/elasticsearch_autocomplete/nod
 stings file 
 https://stackoverflow.com/questions/6467067/how-to-search-for-a-part-of-a-word-with-elasticsearch
 https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html
+
+https://github.com/firebase007/Elastic_search_query_builder_tutorial/blob/7f43fef3c0ecb742fe228d6e0a3fb79165f4bd16/app/services.js#L54
+
 sudo code /etc/elasticsearch/elasticsearch.yml
 start elasticsearch
 sudo systemctl start elasticsearch
@@ -28,7 +31,7 @@ sudo systemctl enable elasticsearch
 curl -XGET 'http://localhost:9200/_nodes?pretty'
 
 //My cloud
-Username
+Username    
 elastic
 Password
 hg4n7zsjOUCeziagDXjTGzLV
