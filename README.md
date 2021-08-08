@@ -16,7 +16,7 @@ Open your terminal from the project folder end copy this string to an open termi
 
     npm install
 
-find the ".env copy" file in the project folder and rename to .env
+find the "copy.env" file in the project folder and rename to .env
 
 ### installation elasticsearch
 
